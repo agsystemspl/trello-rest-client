@@ -13,20 +13,6 @@ class Client extends \AGSystems\REST\AbstractClient
         $this->appId = $appId;
     }
 
-    protected function postHandler($data)
-    {
-        return [
-            'form_params' => $data,
-        ];
-    }
-
-    protected function putHandler($data)
-    {
-        return [
-            'form_params' => $data,
-        ];
-    }
-
     protected function withOptions()
     {
         return [
