@@ -1,0 +1,31 @@
+{
+    "name": "agsystemspl/trello-rest-client",
+    "description": "Trello REST Client",
+    "keywords": ["trello", "rest", "api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paweł Feruś",
+            "email": "mindc@o2.pl"
+        }
+    ],
+    "type": "library",
+    "require": {
+		"php": ">=7.0",
+        "agsystemspl/abstract-rest-client": "dev-master"
+    },
+    "require-dev": {
+        "vlucas/phpdotenv": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "AGSystems\\REST\\Trello\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/agsystemspl/abstract-rest-client"
+        }
+    ]
+}
