@@ -1,6 +1,6 @@
 <?php
 
-namespace AGSystems\REST\Trello;
+namespace AGSystems\Trello\REST;
 
 class Client extends \AGSystems\REST\AbstractClient
 {

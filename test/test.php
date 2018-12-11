@@ -5,7 +5,7 @@ require __DIR__ . "/../vendor/autoload.php";
 $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
 $dotenv->load();
 
-$client = new \AGSystems\REST\Trello\Client(
+$client = new \AGSystems\Trello\REST\Client(
     getenv('API_TOKEN'),
     getenv('APP_ID')
 );

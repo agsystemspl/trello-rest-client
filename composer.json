@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "AGSystems\\REST\\Trello\\": "src/"
+            "AGSystems\\Trello\\REST\\": "src/"
         }
     },
     "repositories": [
