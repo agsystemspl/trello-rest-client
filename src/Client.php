@@ -7,15 +7,16 @@ class Client extends \AGSystems\REST\AbstractClient
     protected $accessToken;
     protected $appId;
 
-    public function __construct($accessToken, $appId)
+    public function __construct(array $args)
     {
-        $this->accessToken = $accessToken;
-        $this->appId = $appId;
+        $this->accessToken = $args['api_token'];
+        $this->appId = $args['app_id'];
     }
 
-    protected function withOptions()
+    protected function clientOptions()
     {
         return [
+            'debug' => true,
             'base_uri' => 'https://api.trello.com/1/',
             'query' => [
                 'key' => $this->appId,

@@ -5,21 +5,27 @@ use AGSystems\Trello\REST\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Middleware;
 
-class ClientTestOld extends TestCase
+class ClientTest extends TestCase
 {
-    public function testOne()
+    public function __construct(string $name = null, array $data = [], string $dataName = '')
     {
-        $this->assertTrue(false);
+        parent::__construct($name, $data, $dataName);
     }
 
     public function testMembersMeBoardsGet()
     {
+        $container = [];
+        $history = Middleware::history($container);
+
         $mock = new MockHandler([
-            new Response(200, [], '{"test": 3343}')
+            new Response(200, [], '[{"name":"My Board"}]')
         ]);
 
         $handler = HandlerStack::create($mock);
+
+        $handler->push($history);
 
         $client = new Client([
             'api_token' => getenv('API_TOKEN'),
@@ -31,7 +37,8 @@ class ClientTestOld extends TestCase
         ]);
 
         $result = $client->members->me->boards->get();
+        $this->assertEquals('[{"name":"My Board"}]', $result);
 
-        $this->assertEquals('{"test": 3343}', $result);
+        var_dump($container);
     }
 }
